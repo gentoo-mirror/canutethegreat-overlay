@@ -1,9 +1,8 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
-AUTOTOOLS_AUTORECONF=1
 AUTOTOOLS_IN_SOURCE_BUILD=1
 inherit eutils
 
@@ -30,23 +29,21 @@ RDEPEND="${DEPEND}"
 DOCS=( AUTHORS ChangeLog NEWS README documents/header.txt documents/header2.txt )
 
 src_configure() {
-	local myeconfargs=(
-		$(use_enable debug debug-output)
-		$(use_enable debug verbose-output)
-		$(use_enable ewf v1-api)
-		$(use_enable unicode wide-character-type)
-		$(use_with zlib)
+	econf \
+		$(use_enable debug debug-output)\
+		$(use_enable debug verbose-output)\
+		$(use_enable ewf v1-api)\
+		$(use_enable unicode wide-character-type)\
+		$(use_with zlib)\
 		# autodetects bzip2 but does not use
-		--without-bzip2
-		$(use_with bfio libbfio)
-		$(use_with ssl openssl)
-		$(use_with uuid libuuid)
+		--without-bzip2\
+		$(use_with bfio libbfio)\
+		$(use_with ssl openssl)\
+		$(use_with uuid libuuid)\
 		$(use_with fuse libfuse)
-	)
-	autotools_src_configure
 }
 
 src_install() {
-	autotools_src_install
+	emake DESTDIR="${D}" install
 	doman manuals/*.1 manuals/*.3
 }
