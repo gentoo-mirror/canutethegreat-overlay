@@ -2,3 +2,7 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
+app-forensics/libewf:bfio - Enables libbfio for chaining file in file handling
+app-forensics/libewf:ewf - Enables the v1 API
+app-forensics/libewf:fuse - Enable fuse support for ewfmount
+app-forensics/libewf:uuid - Enable UUID support in the ewftools
