@@ -1,0 +1,33 @@
+--- a/usr/share/applications/overgrive.desktop	2017-01-23 19:22:34.394288685 -0200
++++ b/usr/share/applications/overgrive.desktop	2017-01-23 19:23:15.189289616 -0200
+@@ -1,9 +1,8 @@
+ [Desktop Entry]
+ Name=overGrive
+-Version=3.3
+ GenericName=overgrive
+ X-GNOME-FullName=overGrive
+-Comment=Ubuntu Google Drive Client
++Comment=Google Drive Client
+ Type=Application
+ Categories=Utility;GTK
+ Path=/opt/thefanclub/overgrive/
+@@ -11,17 +10,14 @@
+ Terminal=false
+ StartupNotify=true
+ Icon=/opt/thefanclub/overgrive/overgrive.png
+-TargetEnvironment=Unity
+ GenericName[en_ZA]=overgrive
+ X-Ayatana-Desktop-Shortcuts=GoogleDriveWeb;GoogleDriveHelp
+ 
+ 
+-[GoogleDriveWeb Shortcut Group]
++[X-GoogleDriveWeb Shortcut Group]
+ Name=Visit Google Drive on the web
+ Exec=xdg-open https://drive.google.com
+-TargetEnvironment=Unity
+ 
+-[GoogleDriveHelp Shortcut Group]
++[X-GoogleDriveHelp Shortcut Group]
+ Name=Help
+ Exec=xdg-open https://support.google.com/drive
+-TargetEnvironment=Unity
