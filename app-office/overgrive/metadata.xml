@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+        <email>canutethegreat@gmail.com</email>
+        <name>Ronald Farrer</name>
+  </maintainer>
+  <longdescription>
+    overGrive is a complete Google Drive™ desktop client solution for Linux
+  </longdescription>
+</pkgmetadata>
