@@ -35,8 +35,6 @@ src_prepare() {
 	unpack ./control.tar.xz
 	unpack ./data.tar.xz
 
-	eapply "${FILESDIR}/${PN}.desktop.patch"
-
 	eapply_user
 }
 
