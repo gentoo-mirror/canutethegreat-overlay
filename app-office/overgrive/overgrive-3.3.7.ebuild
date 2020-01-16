@@ -40,6 +40,7 @@ src_install() {
 	doins -r opt
 	doins -r usr
 	dosym /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc /opt/thefanclub/overgrive/overgrive
+	fperms  /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc
 }
 
 pkg_postinst() {
