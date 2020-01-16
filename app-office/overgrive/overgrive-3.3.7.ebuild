@@ -39,8 +39,6 @@ src_prepare() {
 src_install() {
 	doins -r opt
 	doins -r usr
-	dosym /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc /opt/thefanclub/overgrive/overgrive
-	fperms  /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc
 }
 
 pkg_postinst() {
@@ -48,6 +46,8 @@ pkg_postinst() {
 	fdo-mime_mime_database_update
 	/usr/bin/gtk-update-icon-cache
 	/usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas/
+	dosym /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc /opt/thefanclub/overgrive/overgrive
+	fperms /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc
 }
 
 pkg_postrm() {
