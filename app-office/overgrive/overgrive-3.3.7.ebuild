@@ -34,6 +34,7 @@ src_prepare() {
 	unpack ./data.tar.xz
 
 	eapply_user
+
 }
 
 src_install() {
@@ -41,7 +42,8 @@ src_install() {
 	doins -r usr
 	fperms 0755 /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc
 	dosym /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc /opt/thefanclub/overgrive/overgrive
-	cp files/overgrive /usr/bin/overgrive
+	insinto /usr/bin
+	doins extras/overgrive
 }
 
 pkg_postinst() {
