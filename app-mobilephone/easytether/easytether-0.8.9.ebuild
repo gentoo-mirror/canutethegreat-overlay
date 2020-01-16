@@ -43,6 +43,9 @@ src_install() {
 	doins -r etc
 	doins -r lib
 	doins -r var
+	fperms 755 /usr/bin/easytether-bluetooth
+	fperms 755 /usr/bin/easytether-local
+	fperms 755 /usr/bin/easytether-usb
 }
 
 pkg_postinst() {
