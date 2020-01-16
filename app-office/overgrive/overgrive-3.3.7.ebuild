@@ -5,7 +5,7 @@
 EAPI=6
 inherit fdo-mime font gnome2-utils eutils versionator
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 
 DESCRIPTION="overGrive is a complete Google Drive desktop client solution for Linux"
 HOMEPAGE="https://www.thefanclub.co.za/overgrive"
@@ -18,12 +18,10 @@ RESTRICT="strip mirror" # mirror as explained at bug #547372
 LICENSE="fanclub-EULA"
 IUSE=""
 
-NATIVE_DEPEND="
-	>=dev-python/google-api-python-client-1.5.3
-"
-
 RDEPEND="
-	${NATIVE_DEPEND}
+	dev-libs/libappindicator
+	dev-python/pyinotify
+	>=dev-python/google-api-python-client-1.5.3
 "
 
 DEPEND="
