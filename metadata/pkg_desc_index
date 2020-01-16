@@ -1,4 +1,5 @@
 app-emulation/crossover-bin 17.0.0 17.1.0: Commercial version of app-emulation/wine with paid support.
 app-forensics/libewf 20171104: Implementation of the EWF (SMART and EnCase) image format
+app-mobilephone/easytether 0.8.9: EasyTether is an Android tethering client solution for Linux
 app-office/overgrive 3.3.7: overGrive is a complete Google Drive desktop client solution for Linux
 media-tv/plex-media-server 1.11.1: A free media library that is intended for use with a plex client.
