@@ -1,3 +1,4 @@
+app-editors/vscode-bin 1.41.1: Multiplatform Visual Studio Code from Microsoft (binary version)
 app-emulation/crossover-bin 19.0.0: Commercial version of app-emulation/wine with paid support.
 app-forensics/libewf 20171104: Implementation of the EWF (SMART and EnCase) image format
 app-mobilephone/easytether 0.8.9: EasyTether is an Android tethering client solution for Linux
