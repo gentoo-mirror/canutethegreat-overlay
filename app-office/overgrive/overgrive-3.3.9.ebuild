@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=6
-inherit fdo-mime font gnome2-utils eutils versionator
+inherit xdg-utils font gnome2-utils eutils versionator
 
 KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 
