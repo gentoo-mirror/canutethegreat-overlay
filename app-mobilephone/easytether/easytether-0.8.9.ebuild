@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=6
-inherit fdo-mime font eutils versionator
+inherit xdg-utils font eutils versionator
 
 KEYWORDS="~amd64 ~x86 ~arm64 ~arm ~ppc ~ppc64"
 
