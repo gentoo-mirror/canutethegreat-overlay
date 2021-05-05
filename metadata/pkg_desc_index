@@ -1,3 +1,6 @@
 app-editors/vscode-bin 1.50.1: Multiplatform Visual Studio Code from Microsoft (binary version)
+app-emulation/crossover-bin 20.0.4: Commercial version of app-emulation/wine with paid support.
 app-forensics/libewf 20171104: Implementation of the EWF (SMART and EnCase) image format
+app-mobilephone/easytether 0.8.9: EasyTether is an Android tethering client solution for Linux
+app-office/overgrive 3.3.9: overGrive is a complete Google Drive desktop client solution for Linux
 sys-kernel/dkms 2.8.3: Dynamic Kernel Module Support
