@@ -9,8 +9,7 @@ KEYWORDS="~amd64"
 
 DESCRIPTION="Insync extends Google Drive & OneDrive's web functionality to your desktop by integrating tightly with Linux so you can get work done"
 HOMEPAGE="https://www.insynchq.com/"
-SRC_URI="https://d2t3ff60b2tol4.cloudfront.net/builds/${PN}_${PV}-focal_amd64.deb"
-###SRC_URI="https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.4.3.40990-focal_amd64.deb"
+SRC_URI="https://d2t3ff60b2tol4.cloudfront.net/builds/${PN}_${PV}-buster_amd64.deb"
 
 SLOT="0"
 RESTRICT="strip mirror" # mirror as explained at bug #547372
