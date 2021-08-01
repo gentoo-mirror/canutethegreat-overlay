@@ -1,46 +1,60 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=7
-inherit xdg-utils font gnome2-utils eutils
 
-KEYWORDS="~amd64"
+inherit rpm xdg-utils
 
 DESCRIPTION="Insync extends Google Drive & OneDrive's web functionality to your desktop by integrating tightly with Linux so you can get work done"
 HOMEPAGE="https://www.insynchq.com/"
-SRC_URI="https://d2t3ff60b2tol4.cloudfront.net/builds/${PN}_${PV}-bionic_amd64.deb"
 
+SRC_URI="http://s.insynchq.com/builds/insync-${PV}-fc30.x86_64.rpm"
+
+RESTRICT="strip"
+
+LICENSE="as-is"
 SLOT="0"
-RESTRICT="strip mirror" # mirror as explained at bug #547372
-LICENSE="insynchq-EULA"
+KEYWORDS="~amd64"
 IUSE=""
 
-VRDEPEND="
-	x11-misc/xdg-utils/xdg-utils
-	dev-libs/nss
-	app-crypt/gnupg
-"
-
 DEPEND="
+    >=sys-libs/glibc-2.29
 "
+RDEPEND="${DEPEND}"
+BDEPEND=""
 
-S="${WORKDIR}"
+PATCHES=(
+    "${FILESDIR}/insync-3-fix-ca-path.patch"
+    "${FILESDIR}/insync-3-lib64.patch"
+)
 
-src_prepare() {
-	unpack ./control.tar.gz
-	unpack ./data.tar.gz
+src_unpack() {
+	rpm_src_unpack
 
-	eapply_user
-
+	mkdir -p "${S}"
+	mv "${WORKDIR}"/usr "${S}"/
 }
 
 src_install() {
-	doins -r usr
-	dosym /usr/lib/insync/insync /usr/bin/insync
-	fperms 0755 /usr/lib/insync/insync
+	cp -pPR "${WORKDIR}"/"${P}"/usr/ "${D}"/ || die "Installation failed"
+	mv "${D}"/usr/lib "${D}"/usr/lib64
+	rm -Rf "${D}"/usr/lib64/.build-id
+	gunzip "${D}"/usr/share/man/man1/insync.1.gz
+
+	echo "SEARCH_DIRS_MASK=\"/usr/lib*/insync\"" > "${T}/70-${PN}" || die
+
+	insinto "/etc/revdep-rebuild" && doins "${T}/70-${PN}" || die
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	/usr/bin/gtk-update-icon-cache
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+	xdg_icon_cache_update
 }
+
