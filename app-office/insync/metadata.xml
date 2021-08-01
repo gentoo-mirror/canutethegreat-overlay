@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+        <email>canutethegreat@gmail.com</email>
+        <name>Ronald Farrer</name>
+  </maintainer>
+  <longdescription>
+    Insync extends Google Drive and OneDrive's web functionality to your desktop by integrating tightly with Linux so you can get work done
+  </longdescription>
+</pkgmetadata>
