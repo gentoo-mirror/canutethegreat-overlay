@@ -38,15 +38,13 @@ src_prepare() {
 
 src_install() {
 	doins -r usr
-	dosym usr/lib/insync/insync usr/bin/insync
+	dosym /usr/lib/insync/insync /usr/bin/insync
 }
 
 pkg_postinst() {
-	fdo-mime_desktop_database_update
 	fdo-mime_mime_database_update
 }
 
 pkg_postrm() {
-	fdo-mime_desktop_database_update
 	/usr/bin/gtk-update-icon-cache
 }
