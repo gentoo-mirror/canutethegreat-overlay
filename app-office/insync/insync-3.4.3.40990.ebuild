@@ -39,6 +39,7 @@ src_prepare() {
 src_install() {
 	doins -r usr
 	dosym /usr/lib/insync/insync /usr/bin/insync
+	chmod +x /usr/lib/insync/insync
 }
 
 pkg_postinst() {
