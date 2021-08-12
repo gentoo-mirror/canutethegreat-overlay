@@ -2,7 +2,6 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-emulation/lxd:apparmor - Enable AppArmor support
 app-forensics/libewf:bfio - Enables libbfio for chaining file in file handling
 app-forensics/libewf:ewf - Enables the v1 API
 app-forensics/libewf:fuse - Enable fuse support for ewfmount
