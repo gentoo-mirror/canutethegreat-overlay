@@ -1,164 +1,235 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 2020-2021 LiGurOs Authors
 # Distributed under the terms of the GNU General Public License v2
-
 EAPI=7
 
-inherit autotools bash-completion-r1 linux-info optfeature systemd verify-sig
-
 DESCRIPTION="Fast, dense and secure container management"
-HOMEPAGE="https://linuxcontainers.org/lxd/introduction/ https://github.com/lxc/lxd"
-SRC_URI="https://linuxcontainers.org/downloads/lxd/${P}.tar.gz
-	verify-sig? ( https://linuxcontainers.org/downloads/lxd/${P}.tar.gz.asc )"
+HOMEPAGE="https://linuxcontainers.org/lxd/introduction/"
 
-SLOT="0/$(ver_cut 1)"
-LICENSE="Apache-2.0"
+LICENSE="Apache-2.0 BSD BSD-2 LGPL-3 MIT MPL-2.0"
 SLOT="1"
-KEYWORDS="~amd64"
-IUSE="apparmor ipv6 nls verify-sig"
+KEYWORDS="amd64 ~arm ~arm64 x86"
 
-DEPEND="app-arch/xz-utils
-	>=app-emulation/lxc-3.0.0[apparmor?,seccomp(+)]
-	dev-libs/dqlite
-	dev-libs/lzo
-	dev-libs/raft[lz4]
-	>=dev-util/xdelta-3.0[lzma(+)]
-	net-dns/dnsmasq[dhcp,ipv6?]"
-RDEPEND="${DEPEND}
+IUSE="+daemon +ipv6 +dnsmasq nls test +tools"
+
+inherit autotools bash-completion-r1 linux-info systemd user
+
+SRC_URI="https://linuxcontainers.org/downloads/${PN}/${P}.tar.gz"
+
+DEPEND="
 	acct-group/lxd
-	net-firewall/ebtables
-	net-firewall/iptables[ipv6?]
-	sys-apps/iproute2[ipv6?]
-	sys-fs/fuse:*
-	sys-fs/lxcfs
-	sys-fs/squashfs-tools[lzma]
-	virtual/acl"
-BDEPEND="dev-lang/go
+	>=dev-libs/raft-0.9.22
+	>=dev-db/sqlite-3.25
+	dev-lang/tcl
+	>=dev-lang/go-1.9.4
+	dev-libs/libuv
+	dev-libs/protobuf
 	nls? ( sys-devel/gettext )
-	verify-sig? ( app-crypt/openpgp-keys-linuxcontainers )"
-
-CONFIG_CHECK="
-	~CGROUPS
-	~IPC_NS
-	~NET_NS
-	~PID_NS
-
-	~SECCOMP
-	~USER_NS
-	~UTS_NS
+	test? (
+		app-misc/jq
+		net-misc/curl
+		sys-devel/gettext
+	)
 "
 
-ERROR_IPC_NS="CONFIG_IPC_NS is required."
-ERROR_NET_NS="CONFIG_NET_NS is required."
-ERROR_PID_NS="CONFIG_PID_NS is required."
-ERROR_SECCOMP="CONFIG_SECCOMP is required."
-ERROR_UTS_NS="CONFIG_UTS_NS is required."
+RDEPEND="
+	daemon? (
+		dev-libs/raft
+		app-arch/xz-utils
+		>=app-emulation/lxc-4.0.0
+		dev-libs/libuv
+		dev-libs/lzo
+		dev-util/xdelta:3
+		dnsmasq? (
+			net-dns/dnsmasq[dhcp,ipv6?]
+		)
+		net-firewall/ebtables
+		net-firewall/iptables[ipv6?]
+		net-libs/libnfnetlink
+		net-libs/libnsl:0=
+		net-misc/rsync[xattr]
+		sys-apps/iproute2[ipv6?]
+		sys-fs/fuse
+		sys-fs/lxcfs
+		sys-fs/squashfs-tools[lzma]
+		virtual/acl
+	)
+"
 
-# Go magic.
-QA_PREBUILT="/usr/bin/fuidshift
-	/usr/bin/lxc
-	/usr/bin/lxc-to-lxd
-	/usr/bin/lxd-agent
-	/usr/bin/lxd-benchmark
-	/usr/bin/lxd-p2c
-	/usr/sbin/lxd"
+CONFIG_CHECK="
+	~BRIDGE
+	~DUMMY
+	~IP6_NF_NAT
+	~IP6_NF_TARGET_MASQUERADE
+	~IPV6
+	~IP_NF_NAT
+	~IP_NF_TARGET_MASQUERADE
+	~MACVLAN
+	~NETFILTER_XT_MATCH_COMMENT
+	~NET_IPGRE
+	~NET_IPGRE_DEMUX
+	~NET_IPIP
+	~NF_NAT_MASQUERADE_IPV4
+	~NF_NAT_MASQUERADE_IPV6
+	~VXLAN
+"
+
+ERROR_BRIDGE="BRIDGE: needed for network commands"
+ERROR_DUMMY="DUMMY: needed for network commands"
+ERROR_IP6_NF_NAT="IP6_NF_NAT: needed for network commands"
+ERROR_IP6_NF_TARGET_MASQUERADE="IP6_NF_TARGET_MASQUERADE: needed for network commands"
+ERROR_IPV6="IPV6: needed for network commands"
+ERROR_IP_NF_NAT="IP_NF_NAT: needed for network commands"
+ERROR_IP_NF_TARGET_MASQUERADE="IP_NF_TARGET_MASQUERADE: needed for network commands"
+ERROR_MACVLAN="MACVLAN: needed for network commands"
+ERROR_NETFILTER_XT_MATCH_COMMENT="NETFILTER_XT_MATCH_COMMENT: needed for network commands"
+ERROR_NET_IPGRE="NET_IPGRE: needed for network commands"
+ERROR_NET_IPGRE_DEMUX="NET_IPGRE_DEMUX: needed for network commands"
+ERROR_NET_IPIP="NET_IPIP: needed for network commands"
+ERROR_NF_NAT_MASQUERADE_IPV4="NF_NAT_MASQUERADE_IPV4: needed for network commands"
+ERROR_NF_NAT_MASQUERADE_IPV6="NF_NAT_MASQUERADE_IPV6: needed for network commands"
+ERROR_VXLAN="VXLAN: needed for network commands"
 
 EGO_PN="github.com/lxc/lxd"
-GOPATH="${S}/_dist" # this seems to reset every now and then, though
-
-VERIFY_SIG_OPENPGP_KEY_PATH=${BROOT}/usr/share/openpgp-keys/linuxcontainers.asc
 
 src_prepare() {
 	default
+	eapply_user
 
-	export GOPATH="${S}/_dist"
-
-	sed -i \
-		-e "s:\./configure:./configure --prefix=/usr --libdir=${EPREFIX}/usr/lib/lxd:g" \
-		-e "s:make:make ${MAKEOPTS}:g" \
-		Makefile || die
-
-	# Fix hardcoded ovmf file path, see bug 763180
-	sed -i \
-		-e "s:/usr/share/OVMF:/usr/share/edk2-ovmf:g" \
-		-e "s:OVMF_VARS.ms.fd:OVMF_VARS.secboot.fd:g" \
-		doc/environment.md \
-		lxd/apparmor/instance_qemu.go \
-		lxd/instance/drivers/driver_qemu.go || die "Failed to fix hardcoded ovmf paths."
-
-	# Fix hardcoded virtfs-proxy-helper file path, see bug 798924
-	sed -i \
-		-e "s:/usr/lib/qemu/virtfs-proxy-helper:/usr/libexec/virtfs-proxy-helper:g" \
-		lxd/device/disk.go || die "Failed to fix virtfs-proxy-helper path."
+	cd "${S}/_dist/deps/dqlite" || die "Can't cd to dqlite dir"
+	eautoreconf
 }
 
-src_configure() { :; }
+src_configure() {
+	export GOPATH="${S}/_dist"
+
+	cd "${GOPATH}/deps/dqlite" || die "Can't cd to dqlite dir"
+	econf --libdir=${EPREFIX}/usr/lib/lxd
+}
 
 src_compile() {
 	export GOPATH="${S}/_dist"
-	export GO111MODULE=auto
-	export CGO_LDFLAGS_ALLOW="-Wl,-z,now"
 
-	cd "${S}" || die
+	cd "${GOPATH}/deps/dqlite" || die "Can't cd to dqlite dir"
+	emake CFLAGS="-I${GOPATH}/deps/sqlite" LDFLAGS="-L${GOPATH}/deps/sqlite"
 
-	for k in fuidshift lxd-benchmark lxc lxc-to-lxd; do
-		go install -v -x "${EGO_PN}/${k}" || die "failed compiling ${k}"
-	done
+	# We don't use the Makefile here because it builds targets with the
+	# assumption that `pwd` is in a deep gopath namespace, which we're not.
+	# It's simpler to manually call "go install" than patching the Makefile.
+	cd "${S}"
+	GO111MODULE=auto go install -v -x ${EGO_PN}/lxc || die "Failed to build the client"
 
-	go install -v -x -tags libsqlite3 ${EGO_PN}/lxd || die "Failed to build the daemon"
+	if use daemon; then
 
-	# Needs to be built statically
-	CGO_ENABLED=0 go install -v -tags netgo "${EGO_PN}"/lxd-p2c
-	CGO_ENABLED=0 go install -v -tags agent,netgo "${EGO_PN}"/lxd-agent
+		# LXD depends on a patched, bundled sqlite with replication
+		# capabilities.
+		export CGO_CFLAGS="-I${GOPATH}/deps/dqlite/include/"
+		export CGO_LDFLAGS="-L${GOPATH}/deps/dqlite/.libs/ -Wl,-rpath,${EPREFIX}/usr/lib/lxd"
+		export LD_LIBRARY_PATH="${GOPATH}/deps/dqlite/.libs/"
+
+		GO111MODULE=auto go install -v -x ${EGO_PN}/lxd || die "Failed to build the daemon"
+	fi
+
+	if use tools; then
+		GO111MODULE=auto go install -v -x ${EGO_PN}/fuidshift || die "Failed to build fuidshift"
+		GO111MODULE=auto go install -v -x ${EGO_PN}/lxc-to-lxd || die "Failed to build lxc-to-lxd"
+		GO111MODULE=auto go install -v -x ${EGO_PN}/lxd-agent || die "Failed to build lxd-agent"
+		GO111MODULE=auto go install -v -x ${EGO_PN}/lxd-benchmark || die "Failed to build lxd-benchmark"
+		GO111MODULE=auto go install -v -x ${EGO_PN}/lxd-p2c || die "Failed to build lxd-p2c"
+	fi
 
 	use nls && emake build-mo
+
+	mkdir _dist/man
+	./_dist/bin/lxc manpage _dist/man/
 }
 
 src_test() {
-	export GOPATH="${S}/_dist"
-	export GO111MODULE=off
-	go test -v ${EGO_PN}/lxd || die
+	if use daemon; then
+		export GOPATH="${S}/_dist"
+		# This is mostly a copy/paste from the Makefile's "check" rule, but
+		# patching the Makefile to work in a non "fully-qualified" go namespace
+		# was more complicated than this modest copy/paste.
+		# Also: sorry, for now a network connection is needed to run tests.
+		# Will properly bundle test dependencies later.
+		go get -v -x github.com/rogpeppe/godeps
+		go get -v -x github.com/remyoudompheng/go-misc/deadcode
+		go get -v -x github.com/golang/lint/golint
+		go test -v ${EGO_PN}/lxd
+	else
+		einfo "No tests to run for client-only builds"
+	fi
 }
 
 src_install() {
 	local bindir="_dist/bin"
-	export GOPATH="${S}/_dist"
+	dobin ${bindir}/lxc
+	if use daemon; then
 
-	dosbin ${bindir}/lxd
+		export GOPATH="${S}/_dist"
 
-	for l in fuidshift lxd-agent lxd-benchmark lxd-p2c lxc lxc-to-lxd; do
-		dobin ${bindir}/${l}
-	done
+		cd "${GOPATH}/deps/dqlite" || die "Can't cd to dqlite dir"
+		emake DESTDIR="${D}" install
 
-	cd "${S}" || die
+		# Must only install libs
+		rm -r "${D}/usr/include" || die "Can't remove include directory"
+
+		cd "${S}" || die "Can't cd to \${S}"
+		dosbin ${bindir}/lxd
+	fi
+
+	if use tools; then
+		dobin ${bindir}/fuidshift
+		dobin ${bindir}/lxc-to-lxd
+		dobin ${bindir}/lxd-agent
+		dobin ${bindir}/lxd-benchmark
+		dobin ${bindir}/lxd-p2c
+	fi
+
+	insinto /etc/sysctl.d
+	newins "${FILESDIR}/${PN}-sysctl.conf" 60-${PN}.conf
+
+	if use nls; then
+		domo po/*.mo
+	fi
+
+	if use daemon; then
+		newinitd "${FILESDIR}"/${PN}.initd lxd
+		newconfd "${FILESDIR}"/${PN}.confd lxd
+
+		systemd_newunit "${FILESDIR}"/${PN}.service ${PN}.service
+	fi
 
 	newbashcomp scripts/bash/lxd-client lxc
 
-	newconfd "${FILESDIR}"/lxd-4.0.0.confd lxd
-	newinitd "${FILESDIR}"/lxd-4.0.0.initd lxd
-
-	if use apparmor; then
-		systemd_newunit "${FILESDIR}"/lxd-4.0.0_apparmor.service lxd.service
-	else
-		systemd_newunit "${FILESDIR}"/lxd-4.0.0.service lxd.service
-	fi
-
-	systemd_newunit "${FILESDIR}"/lxd-containers-4.0.0.service lxd-containers.service
-	systemd_newunit "${FILESDIR}"/lxd-4.0.0.socket lxd.socket
-
+	doman _dist/man/*
 	dodoc AUTHORS doc/*
-	use nls && domo po/*.mo
 }
 
 pkg_postinst() {
 	elog
 	elog "Consult https://wiki.gentoo.org/wiki/LXD for more information,"
 	elog "including a Quick Start."
+
+	# The messaging below only applies to daemon installs
+	use daemon || return 0
+
+	# Ubuntu also defines an lxd user but it appears unused (the daemon
+	# must run as root)
 	elog
-	elog "Please run 'lxc-checkconfig' to see all optional kernel features."
+	elog "Though not strictly required, some features are enabled at run-time"
+	elog "when the relevant helper programs are detected:"
+	elog "- sys-apps/apparmor"
+	elog "- sys-fs/btrfs-progs"
+	elog "- sys-fs/lvm2"
+	elog "- sys-fs/zfs"
+	elog "- sys-process/criu"
 	elog
-	optfeature "btrfs storage backend" sys-fs/btrfs-progs
-	optfeature "lvm2 storage backend" sys-fs/lvm2
-	optfeature "zfs storage backend" sys-fs/zfs
+	elog "Since these features can't be disabled at build-time they are"
+	elog "not USE-conditional."
 	elog
 	elog "Be sure to add your local user to the lxd group."
+	elog
+	elog "Networks with bridge.mode=fan are unsupported due to requiring"
+	elog "a patched kernel and iproute2."
 }
+
