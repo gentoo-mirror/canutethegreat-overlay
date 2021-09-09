@@ -13,6 +13,8 @@ LICENSE="expressvpn"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
+S="${WORKDIR}"
+
 src_unpack(){
 	unpack_deb ${A}
 }
