@@ -1,4 +1,4 @@
-app-editors/vscode 1.58.2 1.59.0: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscode 1.58.2 1.59.0 1.60.0: Multiplatform Visual Studio Code from Microsoft
 app-forensics/libewf 20201230: Implementation of the EWF (SMART and EnCase) image format
 app-mobilephone/easytether 0.8.9: EasyTether is an Android tethering client solution for Linux
 app-office/insync 3.4.3.40990 3.5.1.50115: Advanced cross-platform Google Drive and Microsoft OneDrive client
