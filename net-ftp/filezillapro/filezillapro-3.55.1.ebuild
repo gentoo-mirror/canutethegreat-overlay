@@ -40,8 +40,9 @@ pkg_nofetch() {
 }
 
 src_unpack() {
-	#unpack "FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2"
 	unpack ${A}
+	cd ${WORK}
+	mv FileZilla3 usr
 }
 
 src_install() {
