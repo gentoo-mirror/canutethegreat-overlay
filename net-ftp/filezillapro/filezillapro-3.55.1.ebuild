@@ -48,8 +48,7 @@ src_unpack() {
 
 src_install() {
 	doins -r opt
-	exeinto /opt/FileZilla3/bin/
-	doexe filezilla fzputtygen fzsftp fzstorj
+	fperms +x /opt/FileZilla3/bin/*
 	dodir /opt/bin
 	dosym ../FileZilla3/bin/filezilla /opt/bin/filezilla
 	dosym ../FileZilla3/bin/fzputtygen /opt/bin/fzputtygen
