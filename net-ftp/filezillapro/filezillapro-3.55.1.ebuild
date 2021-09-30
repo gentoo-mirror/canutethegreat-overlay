@@ -12,6 +12,7 @@ MY_P="FileZilla_Pro_${MY_PV}"
 
 DESCRIPTION="Commercial verison of FileZilla"
 HOMEPAGE="https://filezillapro.com/"
+SURI="FileZilla_Pro_${PV}.tar.bz2"
 
 SLOT="0"
 KEYWORDS="~amd64"
@@ -31,12 +32,12 @@ RESTRICT="fetch"
 
 pkg_nofetch() {
 	einfo "Please download"
-	einfo "  - FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2"
+	einfo "  - ${A}"
 	einfo "from ${HOMEPAGE} and place it in your DISTDIR directory."
 }
 
 src_unpack() {
-	unpack FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2
+	unpack ${A}
 }
 
 src_install() {
