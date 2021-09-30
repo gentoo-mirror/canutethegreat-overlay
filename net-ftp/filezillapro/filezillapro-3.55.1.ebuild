@@ -40,9 +40,9 @@ pkg_nofetch() {
 }
 
 src_unpack() {
-	unpack ${A}
-	cd ${WORK}
-	mv FileZilla3 usr
+	unpack ${A} || die
+	cd ${WORKDIR} || die
+	mv FileZilla3 usr || die
 }
 
 src_install() {
