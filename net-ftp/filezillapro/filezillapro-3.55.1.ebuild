@@ -42,11 +42,21 @@ pkg_nofetch() {
 src_unpack() {
 	unpack ${A} || die
 	cd ${WORKDIR} || die
-	mv FileZilla3 usr || die
+	mkdir opt || die
+	mv FileZilla3 opt/ || die
 }
 
 src_install() {
-	doins -r usr
+	doins -r opt
+	fperms +x /opt/FileZilla3/bin/filezilla
+	fperms +x /opt/FileZilla3/bin/fzputtygen
+	fperms +x /opt/FileZilla3/bin/fzsftp
+	fperms +x /opt/FileZilla3/bin/fzstorj
+	dodir /opt/bin
+	dosym ../FileZilla3/bin/filezilla /opt/bin/filezilla
+	dosym ../FileZilla3/bin/fzputtygen /opt/bin/fzputtygen
+	dosym ../FileZilla3/bin/fzsftp /opt/bin/fzsftp
+	dosym ../FileZilla3/bin/fzstorj /opt/bin/fzstorj
 }
 
 pkg_postinst() {
