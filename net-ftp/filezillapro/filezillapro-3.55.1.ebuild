@@ -30,6 +30,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 RESTRICT="fetch"
 
+S="${WORKDIR}"
+
 pkg_nofetch() {
 	einfo "Please download"
 	#einfo "  - FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2"
