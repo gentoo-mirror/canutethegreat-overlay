@@ -5,19 +5,16 @@ EAPI=7
 
 WX_GTK_VER="3.0-gtk3"
 
-inherit autotools flag-o-matic wxwidgets xdg
+inherit wxwidgets xdg
 
 MY_PV="${PV/_/-}"
 MY_P="FileZilla_Pro_${MY_PV}"
 
 DESCRIPTION="Commercial verison of FileZilla"
 HOMEPAGE="https://filezillapro.com/"
-#S="${WORKDIR}/${PN}-${MY_PV}"
 
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="dbus nls test"
-RESTRICT="!test? ( test )"
 
 # pugixml 1.7 minimal dependency is for c++11 proper configuration
 RDEPEND="
@@ -28,10 +25,8 @@ RDEPEND="
 	>=dev-libs/pugixml-1.7
 	>=net-libs/gnutls-3.5.7
 	>=x11-libs/wxGTK-3.0.4:${WX_GTK_VER}[X]
-	x11-misc/xdg-utils
-	dbus? ( sys-apps/dbus )"
-DEPEND="${RDEPEND}
-	test? ( >=dev-util/cppunit-1.13.0 )"
+	x11-misc/xdg-utils"
+DEPEND="${RDEPEND}"
 RESTRICT="fetch"
 
 pkg_nofetch() {
@@ -41,7 +36,7 @@ pkg_nofetch() {
 }
 
 src_unpack() {
-	unpack "FileZilla_Pro_{PV}_x86_64-linux-gnu.tar.bz2"
+	unpack "FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2"
 }
 
 src_install() {
