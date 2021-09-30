@@ -36,7 +36,7 @@ pkg_nofetch() {
 }
 
 src_unpack() {
-	unpack "FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2"
+	unpack FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2
 }
 
 src_install() {
