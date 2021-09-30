@@ -42,11 +42,12 @@ pkg_nofetch() {
 src_unpack() {
 	unpack ${A} || die
 	cd ${WORKDIR} || die
-	mv FileZilla3 usr || die
+	mkdir opt || die
+	mv FileZilla3 opt/ || die
 }
 
 src_install() {
-	doins -r usr
+	doins -r opt
 }
 
 pkg_postinst() {
