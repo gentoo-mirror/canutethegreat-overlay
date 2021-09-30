@@ -12,12 +12,9 @@ MY_P="FileZilla_Pro_${MY_PV}"
 
 DESCRIPTION="Commercial verison of FileZilla"
 HOMEPAGE="https://filezillapro.com/"
-#S="${WORKDIR}/${PN}-${MY_PV}"
 
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="dbus nls test"
-RESTRICT="!test? ( test )"
 
 # pugixml 1.7 minimal dependency is for c++11 proper configuration
 RDEPEND="
@@ -41,7 +38,7 @@ pkg_nofetch() {
 }
 
 src_unpack() {
-	unpack "FileZilla_Pro_{PV}_x86_64-linux-gnu.tar.bz2"
+	unpack "FileZilla_Pro_${PV}_x86_64-linux-gnu.tar.bz2"
 }
 
 src_install() {
