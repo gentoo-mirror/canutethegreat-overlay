@@ -12,7 +12,7 @@ MY_P="FileZilla_Pro_${MY_PV}"
 
 DESCRIPTION="Commercial verison of FileZilla"
 HOMEPAGE="https://filezillapro.com/"
-SURI="FileZilla_Pro_${PV}.tar.bz2"
+SURI="https://filezillapro.com/FileZilla_Pro_${PV}.tar.bz2"
 
 SLOT="0"
 KEYWORDS="~amd64"
@@ -37,7 +37,8 @@ pkg_nofetch() {
 }
 
 src_unpack() {
-	unpack ${A}
+	echo "here: ${A}"
+	unpack "${A}"
 }
 
 src_install() {
