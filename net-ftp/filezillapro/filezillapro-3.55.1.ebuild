@@ -48,7 +48,10 @@ src_unpack() {
 
 src_install() {
 	doins -r opt
-	fperms +x /opt/FileZilla3/bin/*
+	fperms +x /opt/FileZilla3/bin/filezilla
+	fperms +x /opt/FileZilla3/bin/fzputtygen
+	fperms +x /opt/FileZilla3/bin/fzsftp
+	fperms +x /opt/FileZilla3/bin/fzstorj
 	dodir /opt/bin
 	dosym ../FileZilla3/bin/filezilla /opt/bin/filezilla
 	dosym ../FileZilla3/bin/fzputtygen /opt/bin/fzputtygen
