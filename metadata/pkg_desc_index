@@ -3,5 +3,5 @@ app-mobilephone/easytether 0.8.9: EasyTether is an Android tethering client solu
 app-office/insync 3.4.3.40990 3.5.1.50115 3.7.3.50326: Advanced cross-platform Google Drive and Microsoft OneDrive client
 app-office/overgrive 3.3.9: overGrive is a complete Google Drive desktop client solution for Linux
 net-ftp/filezillapro 3.55.1: Commercial verison of FileZilla
-net-misc/nxplayer 7.9.2.1: Client for NoMachine remote servers
+net-misc/nxplayer 7.9.2.1 7.10.1: Client for NoMachine remote servers
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
