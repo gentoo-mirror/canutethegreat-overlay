@@ -29,7 +29,7 @@ PATCHES=(
 )
 
 src_unpack() {
-    unpack "insync_${PV}-buster_amd64.deb"
+    unpack "insync_${PV}-kinetic.deb"
     unpack ${WORKDIR}"/data.tar.gz"
 
     mkdir -p "${S}"
