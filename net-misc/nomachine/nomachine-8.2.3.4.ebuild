@@ -11,7 +11,7 @@ MY_PV=$(ver_rs 3 '_')
 DESCRIPTION="NoMachine Client"
 HOMEPAGE="https://www.nomachine.com"
 SRC_URI="https://download.nomachine.com/download/${MY_V}/Linux/${PN}_${MY_PV}_x86_64.tar.gz"
-S="${WORKDIR}/NX/etc/NX/player/packages"
+S="${WORKDIR}/NX/etc/NX/server/packages"
 
 LICENSE="nomachine"
 SLOT="0"
