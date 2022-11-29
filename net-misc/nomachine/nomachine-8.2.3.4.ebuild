@@ -35,7 +35,9 @@ src_install() {
 	make_desktop_entry "nxplayer" "NoMachine Client" "" "Network"
 	dodir /opt
 	tar xzof nxrunner.tar.gz -C "${D}"/opt
+	tar xzof nxnode.tar.gz -C "${D}"/opt
 	tar xzof nxplayer.tar.gz -C "${D}"/opt
+	tar xzof nxserver.tar.gz -C "${D}"/opt
 
 	make_wrapper nxplayer ${NXROOT}/bin/nxplayer ${NXROOT} ${NXROOT}/lib /opt/bin
 }
