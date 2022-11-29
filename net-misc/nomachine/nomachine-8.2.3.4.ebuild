@@ -34,7 +34,7 @@ src_install() {
 	###doicon "${FILESDIR}/${PN}.png"
 	make_desktop_entry "nxplayer" "NoMachine Client" "" "Network"
 	dodir /opt
-	tar xzof nxclient.tar.gz -C "${D}"/opt
+	tar xzof nxrunner.tar.gz -C "${D}"/opt
 	tar xzof nxplayer.tar.gz -C "${D}"/opt
 
 	make_wrapper nxplayer ${NXROOT}/bin/nxplayer ${NXROOT} ${NXROOT}/lib /opt/bin
