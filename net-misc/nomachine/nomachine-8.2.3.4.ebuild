@@ -31,7 +31,7 @@ QA_PREBUILT="*"
 src_install() {
 	local NXROOT=/opt/NX
 
-	doicon "${FILESDIR}/${PN}.png"
+	###doicon "${FILESDIR}/${PN}.png"
 	make_desktop_entry "nxplayer" "NoMachine Client" "" "Network"
 	dodir /opt
 	tar xzof nxclient.tar.gz -C "${D}"/opt
