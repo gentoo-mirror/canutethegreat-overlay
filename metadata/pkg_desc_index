@@ -4,5 +4,9 @@ app-office/insync 3.8.1.50459: Advanced cross-platform Google Drive and Microsof
 app-office/overgrive 3.5.0: overGrive is a complete Google Drive desktop client solution for Linux
 games-util/geforcenow-electron 1.9.0: Linux desktop client for GeForce NOW, using Electron
 net-ftp/filezillapro 3.55.1: Commercial verison of FileZilla
-net-misc/nomachine 8.2.3.4: NoMachine Client
+net-misc/nomachine 8.2.3.4: NoMachine meta package
+net-misc/nxnode 8.2.3.4: NoMachine nxnode
+net-misc/nxplayer 8.2.3.4: NoMachine Client
+net-misc/nxrunner 8.2.3.4: NoMachine nxrunner
+net-misc/nxserver 8.2.3.4: NoMachine Server
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
