@@ -8,9 +8,9 @@ inherit wrapper desktop
 MY_V=$(ver_cut 1-2)
 MY_PV=$(ver_rs 3 '_')
 
-DESCRIPTION="NoMachine meta package"
+DESCRIPTION="NoMachine nxrunner"
 HOMEPAGE="https://www.nomachine.com"
-SRC_URI="https://download.nomachine.com/download/${MY_V}/Linux/${PN}_${MY_PV}_x86_64.tar.gz"
+SRC_URI="https://download.nomachine.com/download/${MY_V}/Linux/nomachine_${MY_PV}_x86_64.tar.gz"
 S="${WORKDIR}/NX/etc/NX/server/packages"
 
 LICENSE="nomachine"
@@ -21,13 +21,20 @@ RESTRICT="strip"
 
 DEPEND=""
 BDEPEND=""
-RDEPEND="net-misc/nxserver
-		net-misc/nxnode
-		net-misc/nxrunner
-		net-misc/nxplayer
-		dev-libs/glib:2
+RDEPEND="dev-libs/glib:2
 		sys-libs/libudev-compat
 		virtual/libcrypt:0
 		dev-libs/openssl:0"
 
 QA_PREBUILT="*"
+
+src_install() {
+	local NXROOT=/opt/NX
+
+	###doicon "${FILESDIR}/${PN}.png"
+	make_desktop_entry "nxrunner" "NoMachine nxrunner" "" "Network"
+	dodir /opt
+	tar xzof nxrunner.tar.gz -C "${D}"/opt
+
+	make_wrapper nxrunner ${NXROOT}/bin/nxrunner ${NXROOT} ${NXROOT}/lib /opt/bin
+}
