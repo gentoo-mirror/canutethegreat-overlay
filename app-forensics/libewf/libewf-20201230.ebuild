@@ -34,7 +34,7 @@ src_configure() {
 		$(use_enable debug verbose-output)\
 		$(use_enable ewf v1-api)\
 		$(use_enable unicode wide-character-type)\
-		$(use_with zlib)\
+		$(use_with zlib auto-detect)\
 		# autodetects bzip2 but does not use
 		--without-bzip2\
 		$(use_with bfio libbfio)\
