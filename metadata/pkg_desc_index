@@ -10,3 +10,4 @@ net-misc/nxplayer 8.2.3.4: NoMachine Client
 net-misc/nxrunner 8.2.3.4: NoMachine nxrunner
 net-misc/nxserver 8.2.3.4: NoMachine Server
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
+www-client/brave-bin 1.51.35: Brave Web Browser
