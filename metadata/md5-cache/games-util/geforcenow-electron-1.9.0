@@ -10,5 +10,5 @@ LICENSE=GPL-3
 RDEPEND=x11-libs/libva
 SLOT=0
 SRC_URI=https://github.com/hmlendea/gfn-electron/releases/download/v1.9.0/geforcenow-electron_1.9.0_linux.zip
-_eclasses_=xdg-utils	ac0e315a3688929e34ac75b139e7349a	xdg	4a14c5c24f121e7da66e5aab4a168c6e
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	xdg	4a14c5c24f121e7da66e5aab4a168c6e
 _md5_=433d48101698056e726285418740e95a
