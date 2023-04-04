@@ -110,12 +110,12 @@ src_install() (
 		dosym ${BRAVE_HOME}/brave /usr/bin/${PN} || die
 
 	# Install Icons for Brave. 
-		newicon "${FILESDIR}/braveAbout.png" "${PN}.png" || die
-		newicon -s 128 "${FILESDIR}/braveAbout.png" "${PN}.png" || die
+		newicon "${WORKDIR}/product_logo_128.png" "${PN}.png" || die
+		newicon -s 128 "${WORKDIR}/product_logo_128.png" "${PN}.png" || die
 
 	# install-xattr doesnt approve using domenu or doins from FILESDIR
-		cp "${FILESDIR}"/${PN}.desktop "${S}"
-		domenu "${S}"/${PN}.desktop
+		###FIXME: missing!###cp "${FILESDIR}"/${PN}.desktop "${S}"
+		###FIXME: MISSING!###domenu "${S}"/${PN}.desktop
 )
 
 pkg_postinst() {
