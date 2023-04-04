@@ -10,4 +10,4 @@ RDEPEND=dev-libs/libpthread-stubs x11-libs/libxcb x11-libs/libXcomposite x11-lib
 SLOT=0
 SRC_URI=amd64? ( https://github.com/brave/brave-browser/releases/download/v1.50.113/brave-browser-1.50.113-linux-amd64.zip ) arm64? ( https://github.com/brave/brave-browser/releases/download/v1.50.113/brave-browser-1.50.113-linux-arm64.zip )
 _eclasses_=toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	d1408425c7c4a7669b9b17735404b693	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	chromium-2	93690d770dc2e27deaa89794e2f9fe3f	xdg-utils	baea6080dd821f5562d715887954c9d3	desktop	021728fdc1b03b36357dbc89489e0f0d
-_md5_=50964b09d9a43bbb41f874a2787a9088
+_md5_=aaf5450c9e5c59224548d1350219fac5
