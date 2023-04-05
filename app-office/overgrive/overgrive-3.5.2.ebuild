@@ -9,9 +9,7 @@ KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 
 DESCRIPTION="overGrive is a complete Google Drive desktop client solution for Linux"
 HOMEPAGE="https://www.thefanclub.co.za/overgrive"
-SRC_URI="
-https://www.thefanclub.co.za/sites/default/files/public/overgrive/overgrive_${PV}_all.deb -> ${PN}_${PV}.deb
-"
+###No longer valid, uses random Google Drive URL now###SRC_URI="https://www.thefanclub.co.za/sites/default/files/public/overgrive/overgrive_${PV}_all.deb -> ${PN}_${PV}.deb"
 
 SLOT="0"
 RESTRICT="strip mirror" # mirror as explained at bug #547372
@@ -28,6 +26,12 @@ DEPEND="
 "
 
 S="${WORKDIR}"
+
+pkg_nofetch() {
+	einfo "Please download"
+	einfo "  - overgrive_${PV}_all.deb -> ${PN}_${PV}.deb"
+	einfo "from ${HOMEPAGE} and place them in your DISTDIR directory."
+}
 
 src_prepare() {
 	unpack ./control.tar.gz
