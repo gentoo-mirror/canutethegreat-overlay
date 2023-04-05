@@ -114,8 +114,8 @@ src_install() (
 		newicon -s 128 "${WORKDIR}/product_logo_128.png" "${PN}.png" || die
 
 	# install-xattr doesnt approve using domenu or doins from FILESDIR
-		###FIXME: missing!###cp "${FILESDIR}"/${PN}.desktop "${S}"
-		###FIXME: MISSING!###domenu "${S}"/${PN}.desktop
+		cp "${FILESDIR}"/${PN}.desktop "${S}"
+		domenu "${S}"/${PN}.desktop
 )
 
 pkg_postinst() {
