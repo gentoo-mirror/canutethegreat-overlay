@@ -9,10 +9,10 @@ KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 
 DESCRIPTION="overGrive is a complete Google Drive desktop client solution for Linux"
 HOMEPAGE="https://www.thefanclub.co.za/overgrive"
-###No longer valid, uses random Google Drive URL now###SRC_URI="https://www.thefanclub.co.za/sites/default/files/public/overgrive/overgrive_${PV}_all.deb -> ${PN}_${PV}.deb"
+SRC_URI="${PN}_${PV}.deb"
 
 SLOT="0"
-RESTRICT="strip mirror" # mirror as explained at bug #547372
+RESTRICT="fetch strip mirror" # mirror as explained at bug #547372
 LICENSE="fanclub-EULA"
 IUSE=""
 
