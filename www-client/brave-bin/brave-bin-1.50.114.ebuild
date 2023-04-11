@@ -20,7 +20,7 @@ arm64? ( https://github.com/brave/brave-browser/releases/download/v${PV}/brave-b
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="amd64 ~arm64"
 IUSE="gnome-keyring"
 
 # gconf is deprecated.
