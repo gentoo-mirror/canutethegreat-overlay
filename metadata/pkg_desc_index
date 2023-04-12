@@ -4,6 +4,7 @@ app-office/insync 3.8.1.50459: Advanced cross-platform Google Drive and Microsof
 app-office/overgrive 3.5.2: overGrive is a complete Google Drive desktop client solution for Linux
 games-util/geforcenow-electron 1.9.0: Linux desktop client for GeForce NOW, using Electron
 net-fs/goofys 0.24.0: A high-performance, user-space file system for mounting Amazon S3 buckets
+net-fs/goofys-bin 0.24.0: A high-performance, user-space file system for mounting Amazon S3 buckets (binary)
 net-ftp/filezillapro 3.55.1: Commercial verison of FileZilla
 net-misc/nomachine 8.2.3.4: NoMachine all-in-one package
 net-misc/nxnode 8.2.3.4: NoMachine nxnode
