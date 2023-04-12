@@ -23,6 +23,5 @@ src_unpack() {
 
 src_install() {
     dobin "${S}/${PN}"
-    dodoc "${FILESDIR}/README.md" "${FILESDIR}/CHANGELOG.md"
 }
 
