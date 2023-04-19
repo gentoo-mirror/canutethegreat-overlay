@@ -17,7 +17,7 @@ S="${WORKDIR}/NX/etc/NX/server/packages"
 LICENSE="nomachine"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="+nxserver +nxnode +nxrunner +nxplayer"
 RESTRICT="strip"
 
 DEPEND=""
@@ -31,20 +31,27 @@ QA_PREBUILT="*"
 
 src_install() {
 	local NXROOT=/opt/NX
-
 	###doicon "${FILESDIR}/${PN}.png"
-	make_desktop_entry "nxserver" "NoMachine Server" "" "Network"
-	make_desktop_entry "nxnode" "NoMachine nxnode" "" "Network"
-	make_desktop_entry "nxrunner" "NoMachine nxrunner" "" "Network"
-	make_desktop_entry "nxplayer" "NoMachine Client" "" "Network"
 	dodir /opt
-	tar xzof nxserver.tar.gz -C "${D}"/opt
-	tar xzof nxnode.tar.gz -C "${D}"/opt
-	tar xzof nxrunner.tar.gz -C "${D}"/opt
-	tar xzof nxplayer.tar.gz -C "${D}"/opt
 
-	make_wrapper nxserver ${NXROOT}/bin/nxserver ${NXROOT} ${NXROOT}/lib /opt/bin
-	make_wrapper nxnode ${NXROOT}/bin/nxnode ${NXROOT} ${NXROOT}/lib /opt/bin
-	make_wrapper nxrunner ${NXROOT}/bin/nxrunner ${NXROOT} ${NXROOT}/lib /opt/bin
-	make_wrapper nxplayer ${NXROOT}/bin/nxplayer ${NXROOT} ${NXROOT}/lib /opt/bin
+	if use nxserver ; then
+		tar xzof nxserver.tar.gz -C "${D}"/opt
+		make_desktop_entry "nxserver" "NoMachine Server" "" "Network"
+		make_wrapper nxserver ${NXROOT}/bin/nxserver ${NXROOT} ${NXROOT}/lib /opt/bin
+	fi
+	if use nxnode ; then
+		tar xzof nxnode.tar.gz -C "${D}"/opt
+		make_desktop_entry "nxnode" "NoMachine nxnode" "" "Network"
+		make_wrapper nxnode ${NXROOT}/bin/nxnode ${NXROOT} ${NXROOT}/lib /opt/bin
+	fi
+	if use nxrunner ; then
+		tar xzof nxrunner.tar.gz -C "${D}"/opt
+		make_desktop_entry "nxrunner" "NoMachine nxrunner" "" "Network"
+		make_wrapper nxrunner ${NXROOT}/bin/nxrunner ${NXROOT} ${NXROOT}/lib /opt/bin
+	fi
+	if use nxplayer ; then
+		tar xzof nxplayer.tar.gz -C "${D}"/opt
+		make_desktop_entry "nxplayer" "NoMachine Client" "" "Network"
+		make_wrapper nxplayer ${NXROOT}/bin/nxplayer ${NXROOT} ${NXROOT}/lib /opt/bin
+	fi
 }
