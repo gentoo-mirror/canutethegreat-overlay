@@ -13,4 +13,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32
-_md5_=f3a98e754e118d9a9dd1d75c9820384d
+_md5_=8e41afd227011e4a85a4e4000a23b7a7

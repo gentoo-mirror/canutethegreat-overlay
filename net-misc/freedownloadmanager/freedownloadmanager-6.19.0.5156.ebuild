@@ -31,8 +31,8 @@ DEPEND="
 S="${WORKDIR}"
 
 src_prepare() {
-	unpack ./control.tar.gz
-	unpack ./data.tar.gz
+	unpack ./control.tar.xz
+	unpack ./data.tar.xz
 
 	eapply_user
 
