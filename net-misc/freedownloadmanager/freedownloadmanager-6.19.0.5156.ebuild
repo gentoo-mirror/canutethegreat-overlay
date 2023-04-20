@@ -30,12 +30,6 @@ DEPEND="
 
 S="${WORKDIR}"
 
-pkg_nofetch() {
-	einfo "Please download"
-	einfo "  - overgrive_${PV}_all.deb -> ${PN}_${PV}.deb"
-	einfo "from ${HOMEPAGE} and place them in your DISTDIR directory."
-}
-
 src_prepare() {
 	unpack ./control.tar.gz
 	unpack ./data.tar.gz
@@ -47,17 +41,12 @@ src_prepare() {
 src_install() {
 	doins -r opt
 	doins -r usr
-	dosym /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc /opt/thefanclub/overgrive/overgrive
 }
 
 pkg_postinst() {
-	fdo-mime_desktop_database_update
-	fdo-mime_mime_database_update
-	/usr/bin/gtk-update-icon-cache
-	/usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas/
+	xdg_icon_cahce_update
 }
 
 pkg_postrm() {
-	fdo-mime_desktop_database_update
-	/usr/bin/gtk-update-icon-cache
+	xdg_icon_cache_update
 }

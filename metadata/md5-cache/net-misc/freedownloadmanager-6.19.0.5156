@@ -1,5 +1,5 @@
 BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
-DEFINED_PHASES=install nofetch postinst postrm prepare setup
+DEFINED_PHASES=install postinst postrm prepare setup
 DEPEND=
 DESCRIPTION=Free Download Manager allows you to adjust traffic usage, organize downloads, control file priorities for torrents, efficiently download large files and resume broken downloads.
 EAPI=7
@@ -13,4 +13,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb
 _eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4a1902f969e5718126434fc35f3a0d9c	eutils	8f942ebdcf04334697649d4a0bf65a32
-_md5_=8b3fcebf279d4013c5f38b9c9d3812d0
+_md5_=f3a98e754e118d9a9dd1d75c9820384d
