@@ -6,6 +6,7 @@ games-util/geforcenow-electron 1.9.0: Linux desktop client for GeForce NOW, usin
 net-fs/goofys 0.24.0: A high-performance, user-space file system for mounting Amazon S3 buckets
 net-fs/goofys-bin 0.24.0: A high-performance, user-space file system for mounting Amazon S3 buckets (binary)
 net-ftp/filezillapro 3.55.1: Commercial verison of FileZilla
+net-misc/freedownloadmanager 6.19.0.5156: Free Download Manager allows you to adjust traffic usage, organize downloads, control file priorities for torrents, efficiently download large files and resume broken downloads.
 net-misc/nomachine 8.4.2.1: NoMachine all-in-one package
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
 www-client/brave-bin 1.50.113 1.50.114: Brave Web Browser
