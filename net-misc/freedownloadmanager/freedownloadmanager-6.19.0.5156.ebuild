@@ -41,7 +41,7 @@ src_prepare() {
 src_install() {
 	doins -r opt
 	doins -r usr
-	doexe opt/freedownloadmanager/fdm
+	chmod +x opt/freedownloadmanager/fdm
 }
 
 pkg_postinst() {
