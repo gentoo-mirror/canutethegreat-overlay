@@ -39,13 +39,16 @@ src_prepare() {
 }
 
 src_install() {
+	local FDMROOT=/opt/freedownloadmanager
 	doins -r opt
 	doins -r usr
-	chmod +x opt/freedownloadmanager/fdm
+	make_desktop_entry "fdm" "Free Download Manager" "" "Network"
+	make_wrapper fdm ${FDMROOT}/fdm ${FDMROOT} ${FDMROOT}/lib /opt/bin
 }
 
 pkg_postinst() {
-	xdg_icon_cahce_update
+	xdg_icon_cache_update
+	chmod +x /opt/freedownloadmanager/fdm
 }
 
 pkg_postrm() {
