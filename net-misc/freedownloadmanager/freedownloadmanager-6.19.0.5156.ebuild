@@ -44,7 +44,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_icon_cahce_update
+	xdg_icon_cache_update
 	chmod +x /opt/freedownloadmanager/fdm
 }
 
