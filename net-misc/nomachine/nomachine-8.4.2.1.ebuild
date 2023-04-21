@@ -31,7 +31,7 @@ QA_PREBUILT="*"
 
 src_install() {
 	local NXROOT=/opt/NX
-	###doicon "${FILESDIR}/${PN}.png"
+	doicon "${NXROOT}/share/icons/48x48/NoMachine-desktop.png"
 	dodir /opt
 
 	if use nxserver ; then
