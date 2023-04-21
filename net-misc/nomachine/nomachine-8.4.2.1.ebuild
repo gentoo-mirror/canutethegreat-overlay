@@ -36,22 +36,22 @@ src_install() {
 
 	if use nxserver ; then
 		tar xzof nxserver.tar.gz -C "${D}"/opt
-		make_desktop_entry "nxserver" "NoMachine Server" "" "Network"
+		make_desktop_entry "/opt/bin/nxserver" "nxserver" "${NXROOT}/share/icons/48x48/NoMachine-Desktop.png" "Network" ""
 		make_wrapper nxserver ${NXROOT}/bin/nxserver ${NXROOT} ${NXROOT}/lib /opt/bin
 	fi
 	if use nxnode ; then
 		tar xzof nxnode.tar.gz -C "${D}"/opt
-		make_desktop_entry "nxnode" "NoMachine nxnode" "" "Network"
+		make_desktop_entry "/opt/bin/nxnode" "nxnode" "${NXROOT}/share/icons/48x48/NoMachine-Desktop.png" "Network" ""
 		make_wrapper nxnode ${NXROOT}/bin/nxnode ${NXROOT} ${NXROOT}/lib /opt/bin
 	fi
 	if use nxrunner ; then
 		tar xzof nxrunner.tar.gz -C "${D}"/opt
-		make_desktop_entry "nxrunner" "NoMachine nxrunner" "" "Network"
+		make_desktop_entry "/opt/bin/nxrunner" "nxrunner" "${NXROOT}/share/icons/48x48/NoMachine-Desktop.png" "Network" ""
 		make_wrapper nxrunner ${NXROOT}/bin/nxrunner ${NXROOT} ${NXROOT}/lib /opt/bin
 	fi
 	if use nxplayer ; then
 		tar xzof nxplayer.tar.gz -C "${D}"/opt
-		make_desktop_entry "nxplayer" "NoMachine Client" "" "Network"
+		make_desktop_entry "/opt/bin/nxplayer" "nxplayer" "${NXROOT}/share/icons/48x48/NoMachine-Desktop.png" "Network" ""
 		make_wrapper nxplayer ${NXROOT}/bin/nxplayer ${NXROOT} ${NXROOT}/lib /opt/bin
 	fi
 }
