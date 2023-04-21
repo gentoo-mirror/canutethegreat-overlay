@@ -7,6 +7,8 @@ inherit xdg-utils font gnome2-utils eutils
 
 KEYWORDS="~amd64 ~x86 ~arm ~arm64"
 
+PYTHON_COMPAT=( python3_{5..12} )
+
 DESCRIPTION="overGrive is a complete Google Drive desktop client solution for Linux"
 HOMEPAGE="https://www.thefanclub.co.za/overgrive"
 SRC_URI="${PN}_${PV}.deb"
@@ -24,6 +26,8 @@ RDEPEND="
 
 DEPEND="
 "
+
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 S="${WORKDIR}"
 
@@ -44,7 +48,7 @@ src_prepare() {
 src_install() {
 	doins -r opt
 	doins -r usr
-	dosym /opt/thefanclub/overgrive/__pycache__/overgrive.cpython-36.pyc /opt/thefanclub/overgrive/overgrive
+	cp ${FILESDIR}/overgrive /opt/bin/
 }
 
 pkg_postinst() {
