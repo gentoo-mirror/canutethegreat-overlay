@@ -48,7 +48,7 @@ src_prepare() {
 src_install() {
 	doins -r opt
 	doins -r usr
-	cp ${FILESDIR}/overgrive opt/bin/
+	doexe "${FILESDIR}/overgrive"
 }
 
 pkg_postinst() {
