@@ -48,6 +48,7 @@ src_prepare() {
 src_install() {
 	doins -r opt
 	doins -r usr
+	exeinto /opt/bin
 	doexe "${FILESDIR}/overgrive"
 }
 
