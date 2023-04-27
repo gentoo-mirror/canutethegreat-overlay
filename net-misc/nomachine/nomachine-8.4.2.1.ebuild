@@ -16,7 +16,7 @@ S="${WORKDIR}/NX/etc/NX/server/packages"
 
 LICENSE="nomachine"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="+nxserver +nxnode +nxrunner +nxplayer"
 RESTRICT="strip"
 
@@ -31,7 +31,7 @@ QA_PREBUILT="*"
 
 src_install() {
 	local NXROOT=/opt/NX
-	doicon "${NXROOT}/share/icons/48x48/NoMachine-desktop.png"
+	###doicon "${NXROOT}/share/icons/48x48/NoMachine-desktop.png"
 	dodir /opt
 
 	if use nxserver ; then
