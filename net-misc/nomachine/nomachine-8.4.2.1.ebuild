@@ -16,7 +16,7 @@ S="${WORKDIR}/NX/etc/NX/server/packages"
 
 LICENSE="nomachine"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="+nxserver +nxnode +nxrunner +nxplayer"
 RESTRICT="strip"
 
