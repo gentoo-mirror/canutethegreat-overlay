@@ -1,9 +1,9 @@
 DEFINED_PHASES=install unpack
 DESCRIPTION=A high-performance, user-space file system for mounting Amazon S3 buckets (binary)
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/kahing/goofys
 KEYWORDS=-* ~amd64
 LICENSE=Apache-2.0
 SLOT=0
 SRC_URI=https://github.com/kahing/goofys/releases/download/v0.24.0/goofys -> goofys-bin-0.24.0-amd64
-_md5_=d85f9973b2eb635a1d909ea33b345709
+_md5_=7ed4374c21199e3e22aa58bb3eb18719

@@ -1,6 +1,6 @@
 DEFINED_PHASES=install postinst postrm prepare setup
 DESCRIPTION=Brave Web Browser
-EAPI=7
+EAPI=8
 HOMEPAGE=https://brave.com
 INHERIT=chromium-2 xdg-utils desktop
 IUSE=gnome-keyring +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_en-US +l10n_es +l10n_es-419 +l10n_et +l10n_fa +l10n_fi +l10n_fil +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW
@@ -10,4 +10,4 @@ RDEPEND=dev-libs/libpthread-stubs x11-libs/libxcb x11-libs/libXcomposite x11-lib
 SLOT=0
 SRC_URI=amd64? ( https://github.com/brave/brave-browser/releases/download/v1.50.114/brave-browser-1.50.114-linux-amd64.zip ) arm64? ( https://github.com/brave/brave-browser/releases/download/v1.50.114/brave-browser-1.50.114-linux-arm64.zip )
 _eclasses_=toolchain-funcs	862d337d98edb576796827be2c6b11ca	multilib	c19072c3cd7ac5cb21de013f7e9832e0	linux-info	c4f1201b96a8a2c1f3b86cc8b2c71c91	chromium-2	93690d770dc2e27deaa89794e2f9fe3f	xdg-utils	baea6080dd821f5562d715887954c9d3	desktop	021728fdc1b03b36357dbc89489e0f0d
-_md5_=711c02dba94b6db2ea20110cc42891ba
+_md5_=f79d07e41f1e02f93a557d7df42d7bc7
