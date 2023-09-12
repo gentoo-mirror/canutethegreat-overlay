@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<repositories version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>canutethegreat-overlay</name>
+      <description lang="en">Random, sometimes useful, Gentoo ebuilds.</description>
+        <homepage>https://github.com/CanuteTheGreat/canutethegreat-overlay</homepage>
+        <owner type="person">
+            <name>Ronald Farrer</name>
+            <email>canutethegreat@gmail.com</email>
+        </owner>
+        <source type="git">git://github.com/CanuteTheGreat/canutethegreat-overlay.git</source>
+        <feed>https://github.com/CanuteTheGreat/canutethegreat-overlay/commits/master.atom</feed>
+  </repo>
+</repositories>

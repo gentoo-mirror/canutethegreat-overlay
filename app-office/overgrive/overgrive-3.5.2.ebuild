@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=7
+EAPI=8
 inherit xdg-utils font gnome2-utils eutils
 
 KEYWORDS="~amd64 ~x86 ~arm ~arm64"
