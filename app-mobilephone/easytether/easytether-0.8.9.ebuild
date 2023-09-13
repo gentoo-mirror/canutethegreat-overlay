@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=8
+EAPI=7
 inherit xdg-utils font eutils
 
 KEYWORDS="~amd64 ~x86 ~arm64 ~arm ~ppc ~ppc64"
