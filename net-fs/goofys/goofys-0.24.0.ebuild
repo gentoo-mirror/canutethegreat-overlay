@@ -1,7 +1,7 @@
 # Copyright 1999-2023 Gentoo 
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
 EGO_PN="github.com/kahing/goofys"
 
