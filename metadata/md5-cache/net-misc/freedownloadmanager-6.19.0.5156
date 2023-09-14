@@ -1,0 +1,16 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm prepare setup
+DEPEND=
+DESCRIPTION=Free Download Manager allows you to adjust traffic usage, organize downloads, control file priorities for torrents, efficiently download large files and resume broken downloads.
+EAPI=8
+HOMEPAGE=https://www.freedownloadmanager.org/
+INHERIT=xdg-utils font
+IUSE=X
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=dev-libs/openssl x11-misc/xdg-utils media-video/ffmpeg dev-qt/qtcore:5 dev-qt/qtgui:5 net-libs/libtorrent
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	font	aa113a3df9cd0a9693a1c1ee7c34a6eb
+_md5_=8489f39371ffca61c0ad1f6ecdcf04ef

@@ -1,0 +1,15 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=install postinst postrm prepare setup
+DESCRIPTION=EasyTether is an Android tethering client solution for Linux
+EAPI=8
+HOMEPAGE=http://www.mobile-stream.com/index.html
+INHERIT=xdg-utils font
+IUSE=X
+KEYWORDS=~amd64 ~x86 ~arm64 ~arm ~ppc ~ppc64
+LICENSE=easytether-EULA
+RDEPEND=
+RESTRICT=strip mirror
+SLOT=0
+SRC_URI=amd64? ( http://www.mobile-stream.com/beta/ubuntu/18.04/easytether_0.8.9_amd64.deb ) x86? ( http://www.mobile-stream.com/beta/ubuntu/18.04/easytether_0.8.9_i386.deb ) arm64? ( http://www.mobile-stream.com/beta/ubuntu/18.04/easytether_0.8.9_arm64.deb ) arm? ( http://www.mobile-stream.com/beta/ubuntu/18.04/easytether_0.8.9_armhf.deb ) ppc? ( http://www.mobile-stream.com/beta/ubuntu/18.04/easytether_0.8.9_powerpc.deb ) ppc64? ( http://www.mobile-stream.com/beta/ubuntu/18.04/easytether_0.8.9_ppc64el.deb )
+_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	font	aa113a3df9cd0a9693a1c1ee7c34a6eb
+_md5_=b2102beedf0ce050581720db2ccb7e3f
