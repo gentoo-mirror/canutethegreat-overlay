@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
-inherit xdg-utils font eutils
+EAPI=8
+inherit xdg-utils font
 
 KEYWORDS="~amd64"
 
