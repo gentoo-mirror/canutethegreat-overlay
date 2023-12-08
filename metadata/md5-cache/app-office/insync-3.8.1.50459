@@ -11,5 +11,5 @@ RDEPEND=>=sys-libs/glibc-2.29
 RESTRICT=strip
 SLOT=0
 SRC_URI=http://s.insynchq.com/builds/insync_3.8.1.50459-kinetic_amd64.deb
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	745ef34afb8c31915d9d42a6aca23a35	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	528663355249513309c74d7775936940	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=7e14713ad71bd28355af4b84d755a2cd
