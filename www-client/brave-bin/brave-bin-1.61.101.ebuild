@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=*
+EAPI=8
 
 BRAVE_PN="${PN/-bin/}"
 
@@ -109,7 +109,7 @@ src_install() (
 
 		dosym ${BRAVE_HOME}/brave /usr/bin/${PN} || die
 
-	# Install Icons for Brave. 
+	# Install Icons for Brave.
 		newicon "${WORKDIR}/product_logo_128.png" "${PN}.png" || die
 		newicon -s 128 "${WORKDIR}/product_logo_128.png" "${PN}.png" || die
 
