@@ -8,7 +8,7 @@ inherit rpm xdg-utils
 DESCRIPTION="Advanced cross-platform Google Drive and Microsoft OneDrive client"
 HOMEPAGE="https://www.insynchq.com/"
 
-SRC_URI="http://s.insynchq.com/builds/insync_${PV}-kinetic_amd64.deb"
+SRC_URI="http://s.insynchq.com/builds/insync_${PV}-jammy_amd64.deb"
 
 RESTRICT="strip"
 
@@ -29,7 +29,7 @@ PATCHES=(
 )
 
 src_unpack() {
-    unpack "insync_${PV}-kinetic_amd64.deb"
+    unpack "insync_${PV}-jammy_amd64.deb"
     unpack ${WORKDIR}"/data.tar.gz"
 
     mkdir -p "${S}"
