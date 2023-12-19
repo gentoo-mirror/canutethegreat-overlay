@@ -1,6 +1,6 @@
 app-forensics/libewf 20201230: Implementation of the EWF (SMART and EnCase) image format
 app-mobilephone/easytether 0.8.9: EasyTether is an Android tethering client solution for Linux
-app-office/insync 3.8.1.50459: Advanced cross-platform Google Drive and Microsoft OneDrive client
+app-office/insync 3.8.1.50459 3.8.6.50504: Advanced cross-platform Google Drive and Microsoft OneDrive client
 app-office/overgrive 3.5.2: overGrive is a complete Google Drive desktop client solution for Linux
 games-util/geforcenow-electron 1.9.0: Linux desktop client for GeForce NOW, using Electron
 net-fs/goofys 0.24.0: A high-performance, user-space file system for mounting Amazon S3 buckets
@@ -8,5 +8,6 @@ net-fs/goofys-bin 0.24.0: A high-performance, user-space file system for mountin
 net-ftp/filezillapro 3.55.1: Commercial verison of FileZilla
 net-misc/freedownloadmanager 6.19.0.5156: Free Download Manager allows you to adjust traffic usage, organize downloads, control file priorities for torrents, efficiently download large files and resume broken downloads.
 net-misc/nomachine 8.4.2.1: NoMachine all-in-one package
+net-misc/nxplayer 8.10.1.1: NoMachine all-in-one package
 sys-kernel/dkms 2.8.4: Dynamic Kernel Module Support
-www-client/brave-bin 1.50.113 1.50.114: Brave Web Browser
+www-client/brave-bin 1.50.113 1.50.114 1.61.101: Brave Web Browser
