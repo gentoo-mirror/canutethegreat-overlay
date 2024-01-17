@@ -22,6 +22,7 @@ RDEPEND="
 	dev-libs/libappindicator
 	dev-python/pyinotify
 	>=dev-python/google-api-python-client-1.5.3
+	dev-python/google-auth-oauthlib
 "
 
 DEPEND="
