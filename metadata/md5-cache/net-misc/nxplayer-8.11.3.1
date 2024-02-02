@@ -1,0 +1,14 @@
+DEFINED_PHASES=install
+DESCRIPTION=NoMachine all-in-one package
+EAPI=8
+HOMEPAGE=https://www.nomachine.com
+INHERIT=wrapper desktop
+IUSE=+nxserver +nxnode +nxrunner +nxplayer
+KEYWORDS=~amd64 ~arm64
+LICENSE=nomachine
+RDEPEND=dev-libs/glib:2 sys-libs/libudev-compat virtual/libcrypt:0 dev-libs/openssl:0
+RESTRICT=strip
+SLOT=0
+SRC_URI=amd64? ( https://download.nomachine.com/download/8.11/Linux/nxplayer_8.11.3_1_x86_64.tar.gz ) arm64? ( https://download.nomachine.com/download/8.11/Arm/nxplayer_8.11.3_1_aarch64.tar.gz )
+_eclasses_=wrapper	4a1902f969e5718126434fc35f3a0d9c	desktop	021728fdc1b03b36357dbc89489e0f0d
+_md5_=8712fa7a84bb6f9dd89c4dabbfb9e818
