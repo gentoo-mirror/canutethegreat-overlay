@@ -11,5 +11,5 @@ RDEPEND=>=sys-libs/glibc-2.29
 RESTRICT=strip
 SLOT=0
 SRC_URI=http://s.insynchq.com/builds/insync_3.8.6.50504-jammy_amd64.deb
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	528663355249513309c74d7775936940	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7828cd38ff559545ca52f92064d0f8f4	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=1ae3da4b70985db7291278b098d8aa64
