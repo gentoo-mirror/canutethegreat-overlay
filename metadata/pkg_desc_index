@@ -11,4 +11,4 @@ net-misc/nomachine 8.4.2.1 8.10.1.1 8.11.3.4: NoMachine all-in-one package
 net-misc/nxplayer 8.10.1.1 8.11.3.4: NoMachine all-in-one package
 net-proxy/zaproxy 2.14.0: The OWASP Zed Attack Proxy for finding vulnerabilities in web applications
 sys-kernel/dkms 2.8.4 3.0.13: Dynamic Kernel Module Support
-www-client/brave-bin 1.69.153: Brave Web Browser
+www-client/brave-bin 1.69.160: Brave Web Browser
