@@ -12,5 +12,5 @@ RDEPEND=dev-libs/openssl x11-misc/xdg-utils media-video/ffmpeg dev-qt/qtcore:5 d
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb
-_eclasses_=xdg-utils	baea6080dd821f5562d715887954c9d3	font	aa113a3df9cd0a9693a1c1ee7c34a6eb
+_eclasses_=xdg-utils	5465aed08f1dfc2a75f14cbea4272961	font	aa113a3df9cd0a9693a1c1ee7c34a6eb
 _md5_=8489f39371ffca61c0ad1f6ecdcf04ef
